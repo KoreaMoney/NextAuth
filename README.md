@@ -1,36 +1,47 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Nextjs 14에서 login & logout에 대한 권한 여부 개발
 
-## Getting Started
+## Nextjs 14
 
-First, run the development server:
+- Next.js 애플리케이션에서 사용자 인증 및 세션 관리를 구현한 서버 사이드 코드
+- Next.js 애플리케이션에서 사용자 인증 및 세션 관리를 구현하는 예시
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### 주요 기능
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1. 세션 관리
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- getIronSession을 사용하여 안전한 세션 관리
+- 사용자의 로그인 상태, 프리미엄 상태, 차단 상태 등을 세션에 저장
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+2. 사용자 인증
 
-## Learn More
+- login 함수를 통한 사용자 로그인 처리
+- 사용자명과 비밀번호 검증 (실제 DB 연동은 주석 처리됨)
 
-To learn more about Next.js, take a look at the following resources:
+3. 로그아웃
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- logout 함수를 통한 세션 파괴 및 로그아웃 처리
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+4. 사용자 정보 업데이트
 
-## Deploy on Vercel
+- changePremium 함수로 사용자의 프리미엄 상태 변경
+- changeUsername 함수로 사용자명 변경
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+5. 안전한 쿠키 기반 세션 관리를 위해 iron-session 라이브러리 사용
+6. revalidatePath를 사용하여 특정 경로의 캐시 무효화
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Premium & Free user registration
+
+### TEST Login information
+
+- ID : korea
+- PW : 1234
+
+### Premium user
+
+![alt text](image.png)
+![alt text](image-1.png)
+
+### Free user
+
+![alt text](image-3.png)
+![alt text](image-2.png)
